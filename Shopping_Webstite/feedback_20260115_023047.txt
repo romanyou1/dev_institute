@@ -1,0 +1,91 @@
+URL: https://github.com/romanyou1/dev_institute/blob/b09942e65c3352bc86a95df8df61935b5f646820/Shopping_Webstite/AP.html
+suggestions for improvement:
+- The provided code includes extra elements beyond the scope of the exercise (e.g., the section with AI Programming Program, the dropdown menu in the navbar), which reduces the correctness score. Focus on implementing just the navbar and footer first as requested in Part I.
+- The navbar's dropdown functionality is not part of the base requirements and is more complex than what's expected at this stage.
+- Separate CSS rules for the navbar, footer, and the rest of the page content for better organization and maintainability. The current structure mixes styling for different parts of the page in `style.css`.
+Correctness: 50%
+-----
+URL: https://github.com/romanyou1/dev_institute/blob/b09942e65c3352bc86a95df8df61935b5f646820/Shopping_Webstite/CI.html
+suggestions for improvement:
+- Separate CSS files for different functionalities (e.g., navbar, products, signup/login) for better organization.
+- Consider using a CSS reset or normalize file to ensure consistent styling across different browsers.
+- While the code fulfills basic requirements, ensure all elements requested are present and styled according to the exercise's visual examples.
+- Implement the bonus features, particularly the hover effects on product items and icons, to enhance user experience.
+Correctness: 70%
+-----
+URL: https://github.com/romanyou1/dev_institute/blob/b09942e65c3352bc86a95df8df61935b5f646820/Shopping_Webstite/DA.html
+suggestions for improvement:
+- In the navbar, the links to signup.html and login.html should be positioned on the right as requested in the Bonus section.
+- Consider using more descriptive class names for better readability, especially in CSS files.
+- The exercise asks for the creation of `products.html`, `products.css` files and linking them. Ensure these are created and linked correctly in the `index.html` file or equivalent.
+- The `products.html` should display products in rows as instructed.
+- The footer should display the current year instead of a hardcoded year.
+- While the provided HTML has a navbar and a footer, the structure and content could better align with the specific requirements outlined in the instructions, such as the positioning of elements within the navbar and the dynamic generation of the year in the footer.
+Correctness: 70%
+-----
+URL: https://github.com/romanyou1/dev_institute/blob/b09942e65c3352bc86a95df8df61935b5f646820/Shopping_Webstite/formations.css
+suggestions for improvement:
+- The provided CSS code appears to be styling elements like images, paragraphs, buttons, and divs with specific classes. However, without the corresponding HTML, it's impossible to determine if this CSS is correctly implementing the shopping website project described in the prompt.
+- The CSS includes absolute positioning and fixed sizes (e.g., `width: 600px`, `height: 380px`, `margin-left: 385px`), which might not be responsive and may cause layout issues on different screen sizes. Consider using relative units like percentages or viewport units for better responsiveness as suggested in the bonus section.
+- The CSS uses specific margins and padding, without a clear underlying structure (like a container or grid) to manage the overall layout. Consider using containers with appropriate margins and padding to create a more consistent and maintainable layout.
+Correctness: 0%
+-----
+URL: https://github.com/romanyou1/dev_institute/blob/b09942e65c3352bc86a95df8df61935b5f646820/Shopping_Webstite/index.html
+suggestions for improvement:
+- The structure of the navbar could be improved. Consider using semantic HTML elements to improve the structure and readability.
+- The styling of the pages are missing, specifically the CSS related to the navbar, footer and products display.
+- There are dropdowns in the navbar that are not required by the exercise.
+Correctness: 70%
+-----
+URL: https://github.com/romanyou1/dev_institute/blob/b09942e65c3352bc86a95df8df61935b5f646820/Shopping_Webstite/login.css
+suggestions for improvement:
+- The provided CSS code appears to be related to styling a login/signup form, which is part of the bonus section but doesn't cover the mandatory parts of the exercise (navbar, footer, products page).
+- To improve correctness, provide CSS code for the navbar, footer, and products page as described in the exercise instructions.
+- Improve readability by adding comments to explain the purpose of different CSS sections and properties.
+Correctness: 20%
+-----
+URL: https://github.com/romanyou1/dev_institute/blob/b09942e65c3352bc86a95df8df61935b5f646820/Shopping_Webstite/login.html
+suggestions for improvement:
+- The HTML structure is generally good and follows the instructions. However, consider using more semantic HTML5 elements for better structure (e.g., `<main>` for the main content area).
+- The exercise instructed you to create a 'products.html' file and link to it. Ensure that such a file exists and the navigation link in the navbar correctly points to it.
+- The signup and login bonus asks for username, email and password. Email is used instead of username in the code.
+- While not explicitly penalized here, consider the accessibility of your website.  Using ARIA attributes can improve accessibility for users with disabilities.
+Correctness: 70%
+-----
+URL: https://github.com/romanyou1/dev_institute/blob/b09942e65c3352bc86a95df8df61935b5f646820/Shopping_Webstite/lostpassword.css
+suggestions for improvement:
+- This CSS file is for a lost password page, which is not explicitly part of the main exercise requirements (navbar, products page, signup/login). Thus, it does not address the current problem.
+- Consider structuring your CSS with more comments to improve readability and maintainability.
+Correctness: 0%
+-----
+URL: https://github.com/romanyou1/dev_institute/blob/b09942e65c3352bc86a95df8df61935b5f646820/Shopping_Webstite/lostpassword.html
+suggestions for improvement:
+- The code mixes HTML structure with potentially unrelated CSS files (lostpassword.css). It should be ensured that all CSS files contribute to the project requirements, and unnecessary ones are removed to improve readability and maintainability.
+- The form uses the GET method, which is not suitable for sensitive data like email addresses, even in a password reset scenario. It should be changed to POST to protect the information.
+- The code does not include the `products.css` as required for the `products.html` page, which is part of the exercise.
+Correctness: 70%
+-----
+URL: https://github.com/romanyou1/dev_institute/blob/b09942e65c3352bc86a95df8df61935b5f646820/Shopping_Webstite/signup.css
+suggestions for improvement:
+- The code provided is a CSS stylesheet, likely intended for styling a signup/login form, based on the class names like 'firstname', 'lastname', 'email', 'checkbox', 'submit', and 'reset'.
+- However, the Chapter Content/Questions describes a larger project involving multiple HTML files (index.html, products.html, signup.html, login.html) and associated CSS files. The provided CSS addresses only a small part of the 'BONUS NOT MANDATORY' section related to signup/login forms.
+- The styling is applied using classes, which is good, but the large, fixed margins (e.g., `margin-left: 500px;`) will make the layout non-responsive.
+- Consider using relative units like percentages or viewport widths (vw) for margins and padding to ensure the layout adapts to different screen sizes.
+- There are some naming issues like .cho h3 and .deb h3 that can be improved.
+- The code addresses part of the bonus content regarding login/signup forms.
+Correctness: 20%
+-----
+URL: https://github.com/romanyou1/dev_institute/blob/b09942e65c3352bc86a95df8df61935b5f646820/Shopping_Webstite/signup.html
+suggestions for improvement:
+- The task asked for a `products.html` file to be linked in the navbar, and signup and login files. While the code has signup.html and login.html, it also contains links to other pages not specified in the exercise.
+- The code should be split into multiple files as the exercise requested (index.html, style.css, products.html, products.css, signup.html, login-signup.css).
+- The navbar and footer creation is good, but the code is not structured as the exercise asked.
+- Consider validating and sanitizing user inputs to prevent security vulnerabilities like XSS or SQL injection, though this is not explicitly mentioned in the prompt, it's a general practice.
+Correctness: 70%
+-----
+URL: https://github.com/romanyou1/dev_institute/blob/b09942e65c3352bc86a95df8df61935b5f646820/Shopping_Webstite/style.css
+suggestions for improvement:
+- The CSS provided does not create the shopping website as described in the prompt.
+- The CSS provided styles a different type of website, seemingly a personal portfolio or blog.
+Correctness: 0%
+-----
