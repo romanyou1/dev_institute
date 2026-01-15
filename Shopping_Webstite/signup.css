@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  display: block;
+  margin-bottom: 20px;
+  color: #a855f7;
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-left: 500px;
+  margin-top: 30px;
+}
+
+form {
+  justify-content: center;
+  gap: 12px;
+  padding: 10px;
+}
+
+form input:not([type="checkbox"]) {
+  width: 520px;
+  max-width: 90vw;
+  height: 50px;
+  padding: 0 14px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  border-color: #a855f7;
+  color: #22c55e;
+}
+
+.firstname {
+	background: #0b0b10;
+	border-color: #a855f7;
+	color: #22c55e;
+	margin-left: 40px;
+	margin-top: 10px;
+	font-family: Menlo, Consolas, "Source Code Pro", monospace;
+}
+
+.lastname {
+	background: #0b0b10;
+	border-color: #a855f7;
+	color: #22c55e;
+	margin-left: 140px;
+	margin-top: 30px;
+	font-family: Menlo, Consolas, "Source Code Pro", monospace;
+}
+
+.email {
+	background: #0b0b10;
+	border-color: #a855f7;
+	color: #22c55e;
+	margin-left: 240px;
+	margin-top: 30px;
+	font-family: Menlo, Consolas, "Source Code Pro", monospace;
+}
+
+.cho h3 {
+	font-family: Menlo, Consolas, "Source Code Pro", monospace;
+	color: #22c55e;
+	margin-left: 340px;
+	margin-top: 30px;	
+}
+
+.checkbox {
+  display: block;
+  position: relative;
+  padding-left: 34px;
+  margin: 14px 0;
+  cursor: pointer;
+
+  font-family: Menlo, Consolas, monospace;
+  font-size: 16px;
+  color: #22c55e;
+
+  margin-left: 440px;
+  margin-top: 20px;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox span {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+
+  border: 2px solid #a855f7;
+  border-radius: 4px;
+  background: transparent;
+}
+
+.checkbox:hover span {
+  box-shadow: 0 0 6px rgba(168, 85, 247, 0.6);
+}
+
+.checkbox input:checked + span {
+  background: #22c55e;
+  border-color: #22c55e;
+}
+
+.checkbox input:checked + span::after {
+  content: "✔";
+  position: absolute;
+  left: 2px;
+  top: -2px;
+  font-size: 14px;
+  color: #0b0b10;
+}
+
+.deb h3{
+	font-family: Menlo, Consolas, "Source Code Pro", monospace;
+	color: #22c55e;
+	margin-left: 560px;
+	margin-top: 50px;
+}
+
+.textbox {
+	background: #0b0b10;
+	border-color: #a855f7;
+	color: #22c55e;
+	margin-left: 470px;
+	margin-top: 15px;
+	font-family: Menlo, Consolas, "Source Code Pro", monospace;
+}
+
+.submit,
+.reset {
+  display: block;
+  text-align: center;
+  background-color: #a855f7;
+  font-family: Menlo, Consolas, "Source Code Pro", monospace;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-left: 635px;
+  font-size: 1em;
+  border-radius: 16px;
+  height: 33px !important;
+  width: 150px !important;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-color: #22c55e !important;
+}
+
+.submit:hover {
+	transform: scale(1.1);
+}
+ 
+.reset:hover {
+	transform: scale(1.1);
+}
