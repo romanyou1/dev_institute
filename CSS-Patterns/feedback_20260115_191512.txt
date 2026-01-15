@@ -1,0 +1,14 @@
+URL: https://github.com/romanyou1/dev_institute/blob/9d5adc1f45bd2a2c0039bd6b1aaa3a55080bb38d/CSS-Patterns/index.html
+suggestions for improvement:
+- The HTML structure provided does not relate to the styling (flexbox or grid) requested in the challenge. The provided HTML creates a structure of nested sections and divs, but it lacks the CSS necessary to arrange them into the pattern displayed in the provided image.
+- The HTML lacks the required CSS to create the specified pattern. The main task requires the use of flexbox or grid to style the content.
+- Consider adding styling (either inline or within the `style.css` file) to demonstrate the use of flexbox or grid. Without CSS, the HTML structure alone does not fulfill the requirement of recreating the pattern.
+Correctness: 0%
+-----
+URL: https://github.com/romanyou1/dev_institute/blob/9d5adc1f45bd2a2c0039bd6b1aaa3a55080bb38d/CSS-Patterns/style.css
+suggestions for improvement:
+- The code only implements parts of the pattern. The `hero` class uses grid effectively for the overall layout. However, the internal structures are not fully representative of the image asset. Review the asset and ensure complete replication of the arrangement.
+- Consider using more descriptive class names than 'box1', 'box2', etc. to improve readability and maintainability.
+- The styling could be more concise by using CSS variables for repeated values like colors and border styles.
+Correctness: 60%
+-----
