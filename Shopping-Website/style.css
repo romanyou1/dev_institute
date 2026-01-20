@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+.navbar {
+  background: black;
+  padding: 18px 18px;
+  position: relative;
+  overflow: visible; 
+  border-bottom: 1px solid rgba(168, 85, 247, 0.35);
+  overflow: auto;
+}
+
+.navbar li {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-link {
+  float: right;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.brand a {
+  font-size: 30px; 
+  display: inline-block;
+}
+
+.nav-link a {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-left: 20px; 
+  margin-top: 10px;
+}
+
+.home {
+  text-align: center;
+  margin: 140px auto 160px;
+  width: 90%;
+}
+
+.home-title {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.home-text {
+  font-size: 18px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.home-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #18a57a;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 6px;
+  letter-spacing: 1px;
+}
+
+.home-btn:hover {
+  background: #14906b;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  background: black;
+  color: white;
+  padding: 14px 18px;
+  text-align: center;
+}
+
