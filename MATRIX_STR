@@ -1,0 +1,59 @@
+MATRIX_STR = '''
+7ir
+Tsi
+h%x
+i ?
+sM# 
+$a 
+#t%'''
+
+matrix = []
+
+for line in MATRIX_STR.strip().split("\n"):
+    matrix.append(list(line))
+
+print(matrix)
+
+decoded_chars = ""
+
+rows = len(matrix)
+cols = len(matrix[0])
+
+for col in range(cols):
+    for row in range(rows):
+        decoded_chars += matrix[row][col]
+
+print(decoded_chars)
+
+decoded_message = ""
+
+rows = len(matrix)
+cols = len(matrix[0])
+
+for col in range(cols):
+    for row in range(rows):
+        char = matrix[row][col]
+        if char.isalpha():
+            decoded_message += char
+
+print(decoded_message)
+
+decoded_message = ""
+was_alpha = False
+
+rows = len(matrix)
+cols = len(matrix[0])
+
+for col in range(cols):
+    for row in range(rows):
+        char = matrix[row][col]
+
+        if char.isalpha():
+            decoded_message += char
+            was_alpha = True
+        else:
+            if was_alpha:
+                decoded_message += " "
+                was_alpha = False
+
+print(decoded_message)
