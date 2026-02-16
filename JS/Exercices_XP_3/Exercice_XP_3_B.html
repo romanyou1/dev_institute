@@ -1,0 +1,83 @@
+<!-- Exercice 2 -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 2 - Work With Forms</title>
+  </head>
+
+  <body>
+    <form id="myForm">
+      <label for="fname">First name:</label><br />
+      <input type="text" id="fname" name="firstname" /><br />
+
+      <label for="lname">Last name:</label><br />
+      <input type="text" id="lname" name="lastname" /><br /><br />
+
+      <input type="submit" value="Submit" id="submit" />
+    </form>
+
+    <ul class="usersAnswer"></ul>
+
+    <script>
+      // Retrieve the form and console.log it.
+      const form = document.querySelector("#myForm");
+      console.log("FORM:", form);
+
+      // Retrieve the inputs by their id and console.log them.
+      const fnameInput = document.getElementById("fname");
+      const lnameInput = document.getElementById("lname");
+
+      console.log("Input by ID fname:", fnameInput);
+      console.log("Input by ID lname:", lnameInput);
+
+      // Retrieve the inputs by their name attribute and console.log them.
+      const firstnameByName = document.querySelector(
+        'input[name="firstname"]'
+      );
+      const lastnameByName = document.querySelector('input[name="lastname"]');
+
+      console.log("Input by NAME firstname:", firstnameByName);
+      console.log("Input by NAME lastname:", lastnameByName);
+
+      // When the user submits the form
+      form.addEventListener("submit", function (event) {
+        // preventDefault stops the form from refreshing the page
+        // otherwise the page reloads and we lose our DOM changes
+        event.preventDefault();
+
+        // get the values of the input tags
+        const firstNameValue = fnameInput.value.trim();
+        const lastNameValue = lnameInput.value.trim();
+
+        // make sure that they are not empty
+        if (firstNameValue === "" || lastNameValue === "") {
+          alert("Please fill in both first name and last name!");
+          return;
+        }
+
+        // select the ul
+        const ul = document.querySelector(".usersAnswer");
+
+        // clear previous answers (optional)
+        ul.innerHTML = "";
+
+        // create an li per input value
+        const li1 = document.createElement("li");
+        li1.textContent = firstNameValue;
+
+        const li2 = document.createElement("li");
+        li2.textContent = lastNameValue;
+
+        // append them to the ul
+        ul.appendChild(li1);
+        ul.appendChild(li2);
+
+        // optional: reset inputs after submit
+        form.reset();
+      });
+    </script>
+  </body>
+</html>

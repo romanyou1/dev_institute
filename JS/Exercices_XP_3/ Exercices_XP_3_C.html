@@ -1,0 +1,52 @@
+<!-- Exercice 3 -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bold Items Exercise</title>
+  </head>
+
+  <body>
+    <p id="myParagraph">
+      <strong>Hello</strong> I hope you are enjoying <strong>this</strong> class.
+      At the <strong>end</strong> you <strong>will</strong> be great Developers!
+      <strong>Enjoy</strong> the <strong>JavaScript</strong> lessons
+    </p>
+
+    <script>
+      // Global variable
+      let allBoldItems;
+
+      // Function to collect all bold items
+      function getBoldItems() {
+        const paragraph = document.getElementById("myParagraph");
+        allBoldItems = paragraph.querySelectorAll("strong");
+      }
+
+      // Function to change color to blue
+      function highlight() {
+        allBoldItems.forEach(function (item) {
+          item.style.color = "blue";
+        });
+      }
+
+      // Function to change color back to black
+      function returnItemsToDefault() {
+        allBoldItems.forEach(function (item) {
+          item.style.color = "black";
+        });
+      }
+
+      // Initialize bold items
+      getBoldItems();
+
+      const paragraph = document.getElementById("myParagraph");
+
+      // Add event listeners
+      paragraph.addEventListener("mouseover", highlight);
+      paragraph.addEventListener("mouseout", returnItemsToDefault);
+    </script>
+  </body>
+</html>
