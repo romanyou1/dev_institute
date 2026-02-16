@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Challenge: Mad Libs</title>
+    <style>
+      body {
+        font-family: system-ui, Arial, sans-serif;
+        padding: 16px;
+      }
+      #story {
+        font-weight: 600;
+      }
+      .controls {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Mad Libs</h1>
+
+    <form id="libform">
+      <label for="noun">Noun:</label><input type="text" id="noun" /><br />
+      <label for="adjective">Adjective:</label
+      ><input type="text" id="adjective" /><br />
+      <label for="person">Someone's Name:</label
+      ><input type="text" id="person" /><br />
+      <label for="verb">Verb:</label><input type="text" id="verb" /><br />
+      <label for="place">A place:</label><input type="text" id="place" /><br />
+
+      <div class="controls">
+        <button id="lib-button" type="submit">Lib it!</button>
+        <!-- BONUS: Shuffle button -->
+        <button id="shuffle-button" type="button">Shuffle story</button>
+      </div>
+    </form>
+
+    <p>
+      Generated story:
+      <span id="story"></span>
+    </p>
+
+    <script src="Daily_challenge_Tell_The_Story.js"></script>
+  </body>
+</html>
