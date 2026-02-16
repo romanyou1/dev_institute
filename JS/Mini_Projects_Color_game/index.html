@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coloring Squares</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <h1>Coloring Squares</h1>
+
+    <div class="app">
+      <div class="panel">
+        <h2>Palette</h2>
+        <div id="palette" aria-label="Color palette"></div>
+
+        <div class="controls">
+          <button id="eraser" type="button" class="secondary">Eraser</button>
+          <button id="clear" type="button" class="secondary">Clear</button>
+        </div>
+
+        <div class="hint">
+          Clique une couleur, puis <b>clique et glisse</b> sur la grille pour dessiner.<br />
+          Events: <code>mousedown</code>, <code>mouseup</code>, <code>mouseover</code>
+        </div>
+      </div>
+
+      <div id="boardWrap">
+        <div id="boardHeader">
+          <div id="currentColorPreview">
+            Couleur:
+            <span id="swatch"></span>
+            <span id="colorName">Black</span>
+          </div>
+
+          <div>
+            <label for="size">Grille:</label>
+            <select id="size">
+              <option value="20">20 x 20</option>
+              <option value="25" selected>25 x 25</option>
+              <option value="30">30 x 30</option>
+              <option value="35">35 x 35</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="board" aria-label="Drawing board"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

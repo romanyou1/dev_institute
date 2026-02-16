@@ -1,0 +1,144 @@
+:root {
+  --cell-size: 18px;
+  --gap: 2px;
+}
+
+body {
+  font-family: system-ui, Arial, sans-serif;
+  margin: 0;
+  padding: 18px;
+  background: #f6f7fb;
+}
+
+h1 {
+  margin: 0 0 10px;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.panel {
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.panel h2 {
+  font-size: 14px;
+  margin: 0 0 10px;
+  opacity: 0.75;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Palette grid */
+#palette {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 8px;
+}
+
+.color {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+}
+
+.color.selected {
+  border-color: #111;
+  outline: 2px solid rgba(0, 0, 0, 0.15);
+  outline-offset: 2px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #111;
+  color: white;
+  font-weight: 600;
+}
+
+button.secondary {
+  background: #e7e9f2;
+  color: #111;
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 13px;
+  opacity: 0.7;
+  line-height: 1.4;
+}
+
+/* Board */
+#boardWrap {
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+#boardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+#currentColorPreview {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+#swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+}
+
+/* Board grid */
+#board {
+  display: grid;
+  gap: var(--gap);
+  user-select: none;
+  touch-action: none;
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+}
+
+.cell:hover {
+  outline: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 850px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+}
