@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Move Box Animation</title>
+
+    <style>
+      #container {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background: yellow;
+      }
+
+      #animate {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: red;
+        left: 0;
+        top: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p><button onclick="myMove()">Click Me</button></p>
+
+    <div id="container">
+      <div id="animate"></div>
+    </div>
+
+    <script>
+      function myMove() {
+        const box = document.getElementById("animate");
+
+        let position = 0;
+
+        // Clear any previous interval before starting
+        let intervalId = setInterval(function () {
+          // Stop when the box reaches the end (400 - 50 = 350px)
+          if (position >= 350) {
+            clearInterval(intervalId);
+          } else {
+            position++;
+            box.style.left = position + "px";
+          }
+        }, 1);
+      }
+    </script>
+  </body>
+</html>
