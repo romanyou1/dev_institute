@@ -1,0 +1,168 @@
+@import url("https://fonts.cdnfonts.com/css/sega-logo-font");
+
+:root {
+  color-scheme: only light;
+  --bg: #6c62b9;
+  --bg-accent: #5a51a8;
+  --topbar: #63db76;
+  --card: #79d8d5;
+  --card-dark: #2d344a;
+  --text: #1e2a39;
+  --shadow: 0 18px 40px rgba(18, 24, 41, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image: url("circuit-pattern.png");
+  background-size: 350px;
+  background-repeat: repeat;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 32px;
+  background: var(--topbar);
+  background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0)
+    ),
+    url("card-pattern.png");
+  background-size: cover;
+  box-shadow: 0 6px 14px rgba(20, 30, 60, 0.2);
+}
+
+.title {
+  margin: 0;
+  font-family: "SEGA LOGO FONT", "Trebuchet MS", sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #0e3b2a;
+}
+
+.search-wrap {
+  flex: 1;
+  max-width: 720px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid rgba(16, 50, 40, 0.2);
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.7);
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: #3e5f9c;
+  box-shadow: 0 0 0 3px rgba(62, 95, 156, 0.2);
+}
+
+.page {
+  padding: 36px 32px 60px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 18px 18px 22px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image: url("card-pattern.png");
+  background-size: cover;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 46px rgba(20, 30, 60, 0.3);
+}
+
+.card-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.avatar {
+  width: 140px;
+  height: 140px;
+  margin: 6px auto 16px;
+  border-radius: 50%;
+  background: var(--card-dark);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.card h2 {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 700px) {
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .title {
+    text-align: center;
+  }
+}

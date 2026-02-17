@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoboFriends Search</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1 class="title">RoboFriends</h1>
+      <label class="search-wrap" for="search-input">
+        <span class="sr-only">Search Robots</span>
+        <input
+          id="search-input"
+          class="search-input"
+          type="search"
+          placeholder="Search Robots"
+          autocomplete="off"
+        />
+      </label>
+    </header>
+
+    <main class="page">
+      <section id="cards" class="cards" aria-live="polite"></section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
