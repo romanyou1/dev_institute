@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Star Wars Random Character</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <main class="page">
+      <header class="logo">STAR WARS</header>
+
+      <section class="card" aria-live="polite">
+        <div class="status" id="status" hidden>
+          <i class="fa-solid fa-circle-notch fa-spin"></i>
+          <span>Loading...</span>
+        </div>
+
+        <div class="error" id="error" hidden>
+          Oh No! That person isnt available.
+        </div>
+
+        <div class="character" id="character" hidden>
+          <h2 class="character__name" id="name">Name</h2>
+          <ul class="character__meta">
+            <li><span>Height</span> <strong id="height">-</strong></li>
+            <li><span>Gender</span> <strong id="gender">-</strong></li>
+            <li><span>Birth Year</span> <strong id="birth">-</strong></li>
+            <li><span>Home World</span> <strong id="homeworld">-</strong></li>
+          </ul>
+        </div>
+      </section>
+
+      <button class="action" id="find">Find Someone</button>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

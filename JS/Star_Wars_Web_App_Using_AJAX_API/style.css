@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&family=Russo+One&display=swap');
+
+:root {
+  --yellow: #f6d22a;
+  --yellow-soft: rgba(246, 210, 42, 0.25);
+  --ink: #ffffff;
+  --panel: rgba(0, 0, 0, 0.7);
+  --space: #050505;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: var(--space);
+  color: var(--ink);
+  font-family: 'Pathway Gothic One', sans-serif;
+  letter-spacing: 0.6px;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, #ffffff 60%, transparent 61%),
+    radial-gradient(1px 1px at 100px 80px, #ffffff 60%, transparent 61%),
+    radial-gradient(1px 1px at 200px 140px, #ffffff 60%, transparent 61%),
+    radial-gradient(1px 1px at 40px 200px, #ffffff 60%, transparent 61%),
+    radial-gradient(1px 1px at 160px 220px, #ffffff 60%, transparent 61%),
+    radial-gradient(1px 1px at 300px 60px, #ffffff 60%, transparent 61%),
+    radial-gradient(1px 1px at 360px 220px, #ffffff 60%, transparent 61%),
+    radial-gradient(1px 1px at 500px 140px, #ffffff 60%, transparent 61%);
+  background-size: 600px 300px;
+  background-repeat: repeat;
+}
+
+.page {
+  width: min(720px, 92vw);
+  display: grid;
+  gap: 28px;
+  justify-items: center;
+  padding: 40px 20px 50px;
+}
+
+.logo {
+  font-family: 'Russo One', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: 6px;
+  text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 3px var(--yellow);
+  text-shadow: 0 0 12px rgba(246, 210, 42, 0.35);
+}
+
+.card {
+  width: 100%;
+  min-height: 260px;
+  border: 3px solid var(--yellow);
+  border-radius: 18px;
+  background: var(--panel);
+  padding: 26px 28px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(246, 210, 42, 0.2);
+}
+
+.status,
+.error,
+.character {
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+}
+
+.status i {
+  font-size: 2.5rem;
+  color: var(--yellow);
+}
+
+.status span {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+.error {
+  font-size: 1.4rem;
+}
+
+.character__name {
+  font-size: 2rem;
+  color: var(--yellow);
+  text-transform: uppercase;
+}
+
+.character__meta {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  font-size: 1.1rem;
+  width: min(360px, 90%);
+}
+
+.character__meta li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--yellow-soft);
+  padding-bottom: 6px;
+}
+
+.character__meta span {
+  opacity: 0.8;
+}
+
+.action {
+  border: 2px solid var(--yellow);
+  background: var(--yellow);
+  color: #111;
+  font-family: 'Russo One', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  padding: 10px 28px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.action:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+  transform: none;
+}
+
+.action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(246, 210, 42, 0.35);
+}
+
+.action:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 22px 18px;
+  }
+
+  .character__meta li {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
