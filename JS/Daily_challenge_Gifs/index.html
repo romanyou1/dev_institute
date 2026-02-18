@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giphy Random GIF Finder</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; padding: 20px; }
+    form { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; }
+    input { padding: 10px; width: 260px; }
+    button { padding: 10px 12px; cursor: pointer; }
+    #gifContainer { display: grid; gap: 14px; }
+    .gif-card { display: flex; align-items: flex-start; gap: 10px; }
+    .gif-card img { max-width: 320px; border-radius: 8px; }
+    .controls { display: flex; gap: 10px; align-items: center; margin-top: 10px; }
+    .error { color: #b00020; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Random GIPHY by Category</h1>
+
+  <form id="gifForm">
+    <input
+      id="categoryInput"
+      type="text"
+      placeholder="Type a category (e.g. sun)"
+      required
+    />
+    <button type="submit">Get Random GIF</button>
+    <button type="button" id="deleteAllBtn">DELETE ALL</button>
+  </form>
+
+  <div id="gifContainer"></div>
+  <p id="errorMsg" class="error"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
