@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kreon:wght@300;400;600;700&family=Nunito:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <h1>Currency Converter</h1>
+        <p>Live rates powered by ExchangeRate-API</p>
+      </header>
+
+      <main class="card">
+        <section class="converter">
+          <div class="field">
+            <label for="from-currency">From</label>
+            <select id="from-currency"></select>
+          </div>
+
+          <button id="swap" class="swap" type="button" aria-label="Swap currencies">
+            ⇄
+          </button>
+
+          <div class="field">
+            <label for="to-currency">To</label>
+            <select id="to-currency"></select>
+          </div>
+
+          <div class="field amount">
+            <label for="amount">Amount</label>
+            <input id="amount" type="number" min="0" step="0.01" value="1" />
+          </div>
+
+          <button id="convert" class="primary" type="button">Convert</button>
+        </section>
+
+        <section class="result" aria-live="polite">
+          <p id="status">Enter an amount and convert.</p>
+          <div id="output" class="output">--</div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

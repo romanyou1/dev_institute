@@ -1,0 +1,194 @@
+:root {
+  --bg-dark: #1f1d2b;
+  --bg-mid: #2f2c3d;
+  --bg-light: #3d3a53;
+  --accent: #ffcc66;
+  --accent-strong: #f49b45;
+  --text: #f4f1ff;
+  --text-soft: rgba(244, 241, 255, 0.7);
+  --glass: rgba(255, 255, 255, 0.12);
+  --glass-strong: rgba(255, 255, 255, 0.2);
+  --border: rgba(255, 255, 255, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Nunito", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top left, #4b4764, var(--bg-dark) 60%),
+    radial-gradient(circle at bottom right, #3f4a5f, var(--bg-dark) 55%),
+    linear-gradient(135deg, rgba(255, 204, 102, 0.2), rgba(244, 155, 69, 0.05));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 16px 48px;
+}
+
+.page {
+  width: min(880px, 100%);
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-family: "Kreon", serif;
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  margin: 0;
+  text-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.hero p {
+  margin: 8px 0 0;
+  color: var(--text-soft);
+}
+
+.card {
+  background: linear-gradient(135deg, var(--glass), rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 24px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 30px 70px rgba(15, 12, 30, 0.45);
+}
+
+.key-section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.key-section label,
+.field label {
+  display: block;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-soft);
+  margin-bottom: 8px;
+}
+
+.key-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: var(--glass-strong);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: rgba(244, 241, 255, 0.5);
+}
+
+select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--text-soft) 50%),
+    linear-gradient(135deg, var(--text-soft) 50%, transparent 50%);
+  background-position: calc(100% - 22px) calc(50% + 2px),
+    calc(100% - 16px) calc(50% + 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  color: #1f1d2b;
+  background: var(--accent);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+}
+
+.swap {
+  align-self: flex-end;
+  margin-bottom: 18px;
+  font-size: 1.1rem;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text);
+}
+
+.converter {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  align-items: end;
+}
+
+.field.amount {
+  grid-column: span 2;
+}
+
+.result {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#status {
+  margin: 0 0 8px;
+  color: var(--text-soft);
+}
+
+.output {
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  font-family: "Kreon", serif;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(20, 20, 35, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hint {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+@media (max-width: 720px) {
+  .key-row {
+    flex-direction: column;
+  }
+
+  .swap {
+    width: 100%;
+  }
+
+  .field.amount {
+    grid-column: span 1;
+  }
+}
