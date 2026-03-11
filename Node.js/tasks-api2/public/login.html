@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body {
+        font-family: "Times New Roman", Times, serif;
+        background-color: #e6e6e6;
+      }
+
+      .container {
+        width: 340px;
+        margin: 24px auto;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      .row {
+        margin-bottom: 14px;
+      }
+
+      label {
+        display: inline-block;
+        width: 100px;
+      }
+
+      input {
+        width: 180px;
+      }
+
+      button {
+        margin-top: 4px;
+      }
+
+      #message {
+        margin-top: 24px;
+        min-height: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Login :</h1>
+      <form id="loginForm">
+        <div class="row">
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" required />
+        </div>
+        <div class="row">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" required />
+        </div>
+        <button id="submitBtn" type="submit" disabled>Login</button>
+      </form>
+      <p id="message"></p>
+    </main>
+
+    <script>
+      const form = document.getElementById("loginForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const message = document.getElementById("message");
+      const requiredInputs = Array.from(form.querySelectorAll("input"));
+
+      function updateSubmitState() {
+        const hasEmptyField = requiredInputs.some(
+          (input) => input.value.trim() === ""
+        );
+        submitBtn.disabled = hasEmptyField;
+      }
+
+      requiredInputs.forEach((input) =>
+        input.addEventListener("input", updateSubmitState)
+      );
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        message.textContent = "";
+
+        const payload = {
+          username: form.username.value.trim(),
+          password: form.password.value,
+        };
+
+        try {
+          const response = await fetch("/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          const result = await response.json();
+          message.textContent = result.message;
+
+          if (response.ok) {
+            form.reset();
+            updateSubmitState();
+          }
+        } catch (error) {
+          message.textContent = "Unexpected error. Please try again.";
+        }
+      });
+    </script>
+  </body>
+</html>
