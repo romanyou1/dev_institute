@@ -1,0 +1,36 @@
+import React from "react";
+import Car from "./Components/Car";
+import Events from "./Components/Events";
+import Phone from "./Components/Phone";
+import Color from "./Components/Color";
+
+function App() {
+
+  const carinfo = { name: "Ford", model: "Mustang" };
+
+  return (
+    <div>
+
+      {/* Exercise 1 */}
+      <Car carInfo={carinfo} />
+
+      <hr />
+
+      {/* Exercise 2 */}
+      <Events />
+
+      <hr />
+
+      {/* Exercise 3 */}
+      <Phone />
+
+      <hr />
+
+      {/* Exercise 4 */}
+      <Color />
+
+    </div>
+  );
+}
+
+export default App;
