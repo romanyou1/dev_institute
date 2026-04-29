@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L1VE - Compte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="account">
+    <main class="page-shell">
+      <header class="page-header">
+        <a class="page-brand" href="index.html">
+          <img src="assets/logo-l1ve-generic.svg" alt="Logo L1VE" />
+        </a>
+        <div class="page-header-actions">
+          <div class="language-panel" data-language-panel="account"></div>
+          <a class="btn btn-ghost" href="index.html" data-i18n="nav.backToApp">Retour à l'app</a>
+        </div>
+      </header>
+
+      <section class="page-stack page-stack-account">
+        <article class="card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow" data-i18n="account.eyebrow">Compte</p>
+              <h1 data-i18n="account.title">Mon profil</h1>
+            </div>
+          </div>
+          <div class="account-summary">
+            <p><span data-i18n="account.currentPlan">Plan actuel :</span> <strong id="accountCurrentPlan"></strong></p>
+            <p><span data-i18n="account.status">Statut abonnement :</span> <strong id="accountStatus"></strong></p>
+            <p><span data-i18n="account.email">Email :</span> <strong id="accountEmail"></strong></p>
+            <button class="btn btn-ghost" id="accountToggleSubscription" type="button" data-i18n="account.toggle">
+              Activer / désactiver l'abonnement
+            </button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow" data-i18n="account.plansEyebrow">Plans</p>
+              <h2 data-i18n="account.plansTitle">Choisir un plan</h2>
+            </div>
+          </div>
+          <div class="plan-grid" id="accountPlanGrid"></div>
+        </article>
+
+        <article class="card hidden" id="accountBasicCard">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow" data-i18n="account.basicEyebrow">Basic</p>
+              <h2 data-i18n="account.basicTitle">Paramètre Basic</h2>
+            </div>
+          </div>
+          <p class="meta" data-i18n="account.basicDesc">Tu peux changer l'onglet autorisé une fois par mois.</p>
+          <div class="basic-tab-buttons" id="accountBasicButtons"></div>
+        </article>
+
+        <article class="card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow" data-i18n="account.referralEyebrow">Parrainage</p>
+              <h2 data-i18n="account.referralTitle">Premium par parrainage</h2>
+            </div>
+          </div>
+          <p id="accountReferralText" class="lead-small">Parrainage Premium : 0/5 amis parrainés</p>
+          <div class="progress-track">
+            <span id="accountReferralProgress"></span>
+          </div>
+          <form id="accountReferralForm" class="inline-form">
+            <input id="accountReferralCode" type="text" placeholder="Entrer un code de parrainage" data-i18n-placeholder="account.referralPlaceholder" />
+            <button class="btn" type="submit" data-i18n="account.referralAdd">Ajouter</button>
+          </form>
+          <button class="btn hidden" id="accountClaimPremium" type="button" data-i18n="account.claimPremium">
+            Obtenir Premium gratuitement
+          </button>
+        </article>
+      </section>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

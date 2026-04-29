@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L1VE - Inscription</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="register">
+    <main class="auth-shell">
+      <section class="auth-card card auth-wide">
+        <div class="auth-toolbar">
+          <a class="auth-brand" href="landing.html">
+            <img src="assets/logo-l1ve-generic.svg" alt="Logo L1VE" />
+          </a>
+          <div class="language-panel" data-language-panel="register"></div>
+        </div>
+        <div>
+          <p class="eyebrow" data-i18n="register.eyebrow">Inscription</p>
+          <h1 data-i18n="register.title">Crée ton compte et prépare ton profil.</h1>
+        </div>
+        <form id="registerForm" class="compact-form two-col-form">
+          <label>
+            <span data-i18n="register.firstName">Prénom</span>
+            <input id="registerFirstName" type="text" required />
+          </label>
+          <label>
+            <span data-i18n="register.lastName">Nom</span>
+            <input id="registerLastName" type="text" required />
+          </label>
+          <label class="full-width">
+            <span data-i18n="register.email">Email</span>
+            <input id="registerEmail" type="email" required />
+          </label>
+          <label>
+            <span data-i18n="register.password">Mot de passe</span>
+            <input id="registerPassword" type="password" required />
+          </label>
+          <label>
+            <span data-i18n="register.confirm">Confirmation</span>
+            <input id="registerPasswordConfirm" type="password" required />
+          </label>
+          <label class="full-width">
+            <span data-i18n="register.birthdate">Date de naissance</span>
+            <input id="registerBirthdate" type="date" required />
+          </label>
+          <label class="check-row full-width">
+            <input id="registerTerms" type="checkbox" />
+            <span data-i18n="register.terms">J'accepte les CGU et la politique de confidentialité.</span>
+          </label>
+          <button class="btn full-width" type="submit" data-i18n="register.submit">Créer mon compte</button>
+        </form>
+        <div class="auth-links">
+          <a href="login.html" data-i18n="register.login">Déjà un compte ? Se connecter</a>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

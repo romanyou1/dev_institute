@@ -1,0 +1,22 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="48" fill="#EEF7F1"/>
+  <rect x="60" y="60" width="1080" height="680" rx="40" fill="url(#bg)"/>
+  <circle cx="952" cy="176" r="94" fill="#2D9F69" fill-opacity="0.14"/>
+  <circle cx="222" cy="198" r="130" fill="#9ADCB6" fill-opacity="0.16"/>
+  <rect x="160" y="190" width="880" height="450" rx="34" fill="#62B986"/>
+  <rect x="212" y="242" width="776" height="346" rx="28" fill="#7AC79A" stroke="#EFFFF5" stroke-width="10"/>
+  <rect x="212" y="344" width="106" height="142" rx="18" stroke="#EFFFF5" stroke-width="10"/>
+  <rect x="882" y="344" width="106" height="142" rx="18" stroke="#EFFFF5" stroke-width="10"/>
+  <circle cx="600" cy="416" r="64" stroke="#EFFFF5" stroke-width="10"/>
+  <path d="M600 242V588" stroke="#EFFFF5" stroke-width="10"/>
+  <circle cx="600" cy="416" r="26" fill="#FFFFFF"/>
+  <path d="M582 404H618L628 432L600 450L572 432L582 404Z" fill="#1F2430"/>
+  <text x="160" y="152" fill="#18794A" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Five et foot collectif</text>
+  <text x="160" y="706" fill="#557867" font-family="Arial, Helvetica, sans-serif" font-size="24">Session propre, niveau intermediaire et bon collectif.</text>
+  <defs>
+    <linearGradient id="bg" x1="60" y1="60" x2="1140" y2="740" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBFFFC"/>
+      <stop offset="1" stop-color="#DDF3E7"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,8 +1,3 @@
-L1VE est un MVP avec 3 onglets:
-- Dating
-- Rencontre amicale
-- Rencontre pro
-
 # L1VE.v2 (Front-only)
 
 Site web responsive et dynamique (sans back-end) en HTML/CSS/JS.
@@ -10,11 +5,11 @@ Site web responsive et dynamique (sans back-end) en HTML/CSS/JS.
 ## Lancer
 
 Option simple:
-- Ouvrir `landing.html` dans le navigateur.
+- Ouvrir `index.html` dans le navigateur.
 
 Option serveur local:
 ```bash
-cd ./L1VE.v2
+cd /Users/romanyouh1gmail.com/Desktop/taff/Cyber/Perso/Codex/L1VE/L1VE.v2
 python3 -m http.server 5500
 ```
 Puis ouvrir `http://localhost:5500`.

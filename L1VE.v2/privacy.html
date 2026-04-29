@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L1VE - Politique de confidentialité</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="privacy">
+    <main class="page-shell">
+      <header class="page-header">
+        <a class="page-brand" href="landing.html"><img src="assets/logo-l1ve-generic.svg" alt="Logo L1VE" /></a>
+        <div class="page-header-actions">
+          <div class="language-panel" data-language-panel="privacy"></div>
+          <a class="btn btn-ghost" href="landing.html" data-i18n="nav.backToHome">Retour à l'accueil</a>
+        </div>
+      </header>
+      <section class="page-stack page-stack-narrow">
+        <article class="card">
+          <p class="eyebrow" data-i18n="privacy.hero.eyebrow">Confidentialité</p><br>
+          <h1 data-i18n="privacy.hero.title">Politique de confidentialité</h1><br>
+          <p class="lead" data-i18n="privacy.hero.lead">
+            Cette politique décrit les principes de traitement des données dans le cadre du MVP L1VE. Dans cette
+            version front-only, certaines données sont stockées localement dans le navigateur afin de simuler une
+            expérience complète.
+          </p>
+        </article>
+        <article class="card">
+          <h2 data-i18n="privacy.data.title">Données traitées</h2><br>
+          <p data-i18n="privacy.data.p1">
+            Les informations susceptibles d’être manipulées incluent notamment : identité de profil, email, centres
+            d’intérêt, photos, préférences, historique local d’interactions, langue choisie et état d’interface.
+          </p>
+        </article>
+        <article class="card">
+          <h2 data-i18n="privacy.modes.title">Base de fonctionnement du MVP</h2><br>
+          <p data-i18n="privacy.modes.p1">
+            Dans cette version, une partie de la persistance repose sur le stockage local du navigateur. Les données
+            restent donc principalement attachées à l’appareil utilisé pour la démonstration.
+          </p>
+          <p data-i18n="privacy.modes.p2">
+            En cas d’évolution vers une version en ligne, les finalités, durées de conservation, fondements
+            juridiques et sous-traitants devront être formalisés dans une politique actualisée.
+          </p>
+        </article>
+        <article class="card">
+          <h2 data-i18n="privacy.purpose.title">Finalités</h2><br>
+          <p data-i18n="privacy.purpose.p1">
+            Les données sont utilisées pour : afficher les profils, mémoriser l’état du compte, personnaliser
+            l’expérience, gérer les interactions entre espaces, conserver la langue choisie et simuler les parcours
+            produit.
+          </p>
+        </article>
+        <article class="card">
+          <h2 data-i18n="privacy.rights.title">Droits des utilisateurs</h2><br>
+          <p data-i18n="privacy.rights.p1">
+            Tout utilisateur peut demander l’accès, la rectification ou la suppression des données le concernant dans
+            le cadre d’une version mise en production. Pour ce MVP local, la suppression peut notamment être obtenue
+            en effaçant les données du navigateur ou en réinitialisant le stockage local.
+          </p>
+        </article>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L1VE.v2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="app">
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand-link" href="landing.html" aria-label="Retour vers l'accueil L1VE">
+          <span class="eyebrow" data-i18n="app.brand">L1VE Startup UI</span>
+          <img class="topbar-logo" src="assets/logo-l1ve-generic.svg" alt="Logo L1VE générique" />
+        </a>
+
+        <div class="topbar-actions">
+          <div class="status-chip" id="subscriptionStatusChip">Abonnement actif</div>
+          <div class="welcome-chip" id="welcomeChip">Mode visiteur</div>
+          <div class="language-panel" data-language-panel="app"></div>
+          <a class="btn btn-ghost" href="profile.html" data-i18n="nav.profile">Mon profil</a>
+          <a class="btn btn-ghost" href="account.html" data-i18n="nav.account">Compte & abonnement</a>
+        </div>
+      </header>
+
+      <main class="content app-content">
+        <section class="hero-live">
+          <div class="hero-copy">
+            <p class="eyebrow" data-i18n="app.hero.eyebrow">Marseille only</p>
+            <h1 data-i18n="app.hero.title">Rencontre. Amitié. Opportunités. En vrai, dans ta ville.</h1>
+            <p class="hero-text" data-i18n="app.hero.text">
+              L1VE orchestre tes rencontres locales avec trois univers distincts, une navigation fluide
+              et des expériences pensées mobile-first.
+            </p>
+          </div>
+
+          <div class="hero-metrics">
+            <article class="metric">
+              <p class="metric-label" data-i18n="app.metrics.profilesLabel">Profils actifs</p>
+              <strong id="liveProfilesCount" class="metric-value">0</strong>
+              <span class="metric-sub" data-i18n="app.metrics.profilesSub">Dating + Pro</span>
+            </article>
+            <article class="metric">
+              <p class="metric-label" data-i18n="app.metrics.activitiesLabel">Activités ouvertes</p>
+              <strong id="liveActivitiesCount" class="metric-value">0</strong>
+              <span class="metric-sub" data-i18n="app.metrics.activitiesSub">Amical + Sport + Pro</span>
+            </article>
+            <article class="metric">
+              <p class="metric-label" data-i18n="app.metrics.convosLabel">Conversations live</p>
+              <strong id="liveConvosCount" class="metric-value">0</strong>
+              <span class="metric-sub" data-i18n="app.metrics.convosSub">Cette session</span>
+            </article>
+          </div>
+
+          <div class="ticker-wrap">
+            <p class="eyebrow" data-i18n="app.ticker.label">Trending Marseille</p>
+            <div class="ticker" id="liveTicker"></div>
+          </div>
+        </section>
+
+        <section class="upsell-banner hidden" id="upsellBanner">
+          <div>
+            <h3 data-i18n="app.upsell.title">Accès limité</h3>
+            <p id="upsellText" data-i18n="app.upsell.default">Passe à un plan supérieur pour débloquer cette fonctionnalité.</p>
+          </div>
+          <a class="btn" href="account.html" data-i18n="app.upsell.button">Voir les plans</a>
+        </section>
+
+        <nav class="tabs desktop-tabs" aria-label="Espaces principaux">
+          <button class="tab-btn active" data-main-space="dating" data-i18n="space.dating">Dating</button>
+          <button class="tab-btn" data-main-space="amical" data-i18n="space.amical">Rencontre amicale</button>
+          <button class="tab-btn" data-main-space="sport" data-i18n="space.sport">Rencontre sportive</button>
+          <button class="tab-btn" data-main-space="pro" data-i18n="space.pro">Rencontre pro</button>
+        </nav>
+
+        <section class="space-panel active" data-space-panel="dating">
+          <header class="space-header dating">
+            <div>
+              <p class="eyebrow" data-i18n="dating.header.eyebrow">Dating</p>
+              <h2 data-i18n="dating.header.title">Swipe, match, messages et rendez-vous qui donnent envie.</h2>
+              <p class="space-text" data-i18n="dating.header.text">
+                Profils carrés, photos multiples, compteurs de quota et recommandations locales autour de
+                Marseille.
+              </p>
+            </div>
+            <div class="space-side">
+              <p class="usage-text" id="datingUsageText"></p>
+              <img class="space-logo" src="assets/logo-l1ve-dating.svg" alt="Logo L1VE dating" />
+            </div>
+          </header>
+
+          <nav class="inner-tabs dating" aria-label="Navigation dating">
+            <button class="inner-tab active" data-space="dating" data-view="swipe" data-i18n="tab.dating.swipe">🔥 Swipe</button>
+            <button class="inner-tab" data-space="dating" data-view="matches" data-i18n="tab.dating.matches">💬 Matches</button>
+            <button class="inner-tab" data-space="dating" data-view="messages" data-i18n="tab.dating.messages">✉️ Messages</button>
+          </nav>
+
+          <div class="space-view active" data-space="dating" data-view-panel="swipe">
+            <div class="feature-grid">
+              <article class="card showcase-card dating-card">
+                <div class="carousel-shell">
+                  <button class="icon-btn" id="datingPrevPhotoBtn" type="button" aria-label="Photo précédente">
+                    ‹
+                  </button>
+                  <div class="profile-frame">
+                    <img id="datingProfileImage" alt="Profil dating" />
+                    <div class="swipe-flash" id="swipeFlash"></div>
+                    <div class="badge-row">
+                      <span class="badge badge-featured hidden" id="datingFeaturedBadge" data-i18n="dating.featured">⭐ Mis en avant</span>
+                      <span class="badge badge-muted" id="datingDistanceBadge">Marseille centre</span>
+                    </div>
+                    <div class="photo-dots" id="datingPhotoDots"></div>
+                  </div>
+                  <button class="icon-btn" id="datingNextPhotoBtn" type="button" aria-label="Photo suivante">
+                    ›
+                  </button>
+                </div>
+
+                <div class="profile-meta">
+                  <div class="profile-main">
+                    <div>
+                      <h3 id="datingProfileName">Profil</h3>
+                      <p id="datingProfileBio" class="meta"></p>
+                    </div>
+                    <div class="preview-chip">
+                      <img id="datingNextProfileImage" alt="Prochain profil" />
+                      <span id="datingNextProfileName">Ensuite</span>
+                    </div>
+                  </div>
+
+                  <div class="tags" id="datingProfileTags"></div>
+
+                  <div class="quota-block">
+                    <div class="quota-head">
+                      <strong id="datingSwipeRemaining">0 swipes restants aujourd'hui</strong>
+                      <span class="meta" data-i18n="dating.quotaTimezone">Quota Europe/Paris</span>
+                    </div>
+                    <div class="swipe-meter">
+                      <span id="datingSwipeProgress"></span>
+                    </div>
+                  </div>
+
+                  <div class="actions-row">
+                    <button class="btn btn-soft-red" id="passBtn" type="button" data-i18n="dating.pass">Pass</button>
+                    <button class="btn btn-red" id="likeBtn" type="button" data-i18n="dating.like">Like</button>
+                  </div>
+                </div>
+              </article>
+
+              <aside class="stack">
+                <article class="card">
+                  <h3 data-i18n="dating.spotlight.title">Spotlight</h3>
+                  <p class="meta" id="datingSpotlightText">
+                    Les membres Platinum sont montrés en premier pour booster leur visibilité.
+                  </p>
+                </article>
+                <article class="card">
+                  <h3 data-i18n="dating.pace.title">Rythme du jour</h3>
+                  <p class="meta" id="datingPaceText">Prends ton temps et garde des swipes pour ce soir.</p>
+                </article>
+              </aside>
+            </div>
+          </div>
+
+          <div class="space-view" data-space="dating" data-view-panel="matches">
+            <article class="card">
+              <div class="section-head">
+                <div>
+                  <h3 data-i18n="dating.matches.title">Matches</h3>
+                  <p class="meta" data-i18n="dating.matches.text">Clique sur une carte pour ouvrir la conversation.</p>
+                </div>
+              </div>
+              <div class="match-grid" id="datingMatchesGrid"></div>
+            </article>
+          </div>
+
+          <div class="space-view" data-space="dating" data-view-panel="messages">
+            <div class="chat-layout">
+              <aside class="card chat-sidebar">
+                <div class="section-head">
+                  <div>
+                    <h3 data-i18n="dating.conversations.title">Conversations</h3>
+                    <p class="meta" data-i18n="dating.conversations.text">Tous tes matchs actifs.</p>
+                  </div>
+                </div>
+                <div class="conversation-list" id="datingConversationList"></div>
+              </aside>
+
+              <section class="card chat-main">
+                <div class="chat-head">
+                  <div>
+                    <h3 id="datingChatTitle">Messagerie Dating</h3>
+                    <p class="meta" id="datingChatSubtitle">Choisis un match pour démarrer.</p>
+                  </div>
+                </div>
+                <div id="datingChatMessages" class="chat-box theme-dating"></div>
+                <p id="datingTyping" class="typing hidden" data-i18n="dating.typing">L1VE bot écrit...</p>
+                <form id="datingChatForm" class="chat-form">
+                  <input
+                    id="datingChatInput"
+                    type="text"
+                    placeholder="Envoie un message précis pour obtenir une réponse utile..."
+                    data-i18n-placeholder="dating.chat.placeholder"
+                  />
+                  <button class="btn btn-red" type="submit" data-i18n="feed.comment.send">Envoyer</button>
+                </form>
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <section class="space-panel" data-space-panel="amical">
+          <header class="space-header amical">
+            <div>
+              <p class="eyebrow" data-i18n="amical.header.eyebrow">Rencontre amicale</p>
+              <h2 data-i18n="amical.header.title">Sorties, activités, groupes et rencontres locales à taille humaine.</h2>
+              <p class="space-text" data-i18n="amical.header.text">
+                Carte de Marseille, création d’activités, validation manuelle si besoin et messagerie de
+                groupe.
+              </p>
+            </div>
+            <div class="space-side">
+              <p class="usage-text" id="amicalUsageText"></p>
+              <img class="space-logo space-logo-amical" src="assets/logo-l1ve-amical.svg" alt="Logo L1VE amical" />
+            </div>
+          </header>
+
+          <nav class="inner-tabs amical" aria-label="Navigation amicale">
+            <button class="inner-tab active" data-space="amical" data-view="activities" data-i18n="tab.amical.activities">🗺️ Activités</button>
+            <button class="inner-tab" data-space="amical" data-view="create" data-i18n="tab.amical.create">➕ Créer</button>
+            <button class="inner-tab" data-space="amical" data-view="messages" data-i18n="tab.amical.messages">💬 Messages</button>
+          </nav>
+
+          <div class="space-view active" data-space="amical" data-view-panel="activities">
+            <div class="feature-grid">
+              <article class="card map-card">
+                <div class="section-head">
+                  <div>
+                    <h3 data-i18n="amical.map.title">Carte des activités</h3>
+                    <p class="meta" data-i18n="amical.map.text">Pins prune pour l’amical, dorés pour les activités VIP.</p>
+                  </div>
+                </div>
+                <div class="map-jump-row" id="amicalMapJumps"></div>
+                <div id="amicalMap" class="map-surface"></div>
+              </article>
+
+              <article class="card detail-card">
+                <img id="amicalSelectedImage" class="place-photo" alt="Lieu activité amicale" />
+                <div class="detail-head">
+                  <div>
+                    <h3 id="amicalSelectedTitle">Sélectionne une activité</h3>
+                    <p id="amicalSelectedDesc" class="meta">Clique sur un pin prune pour ouvrir la fiche.</p>
+                  </div>
+                  <span class="badge badge-muted" id="amicalSelectedStatus">Activité</span>
+                </div>
+                <p id="amicalSelectedMeta" class="meta"></p>
+                <div class="tags" id="amicalSelectedTags"></div>
+                <div class="avatar-line" id="amicalParticipants"></div>
+                <section class="request-panel hidden" id="amicalPendingSection">
+                  <h4 data-i18n="amical.pending.title">Demandes en attente</h4>
+                  <div id="amicalPendingRequests" class="request-list"></div>
+                </section>
+                <button class="btn btn-amical" id="amicalJoinBtn" type="button" disabled>S'inscrire</button>
+              </article>
+            </div>
+          </div>
+
+          <div class="space-view" data-space="amical" data-view-panel="create">
+            <div class="split two-cols">
+              <article class="card">
+                <div class="section-head">
+                  <div>
+                    <h3 data-i18n="amical.create.title">Créer une activité</h3>
+                    <p class="meta" data-i18n="amical.create.text">Ajoute une sortie locale et configure la validation manuelle si besoin.</p>
+                  </div>
+                </div>
+                <form id="amicalCreateForm" class="compact-form">
+                  <input id="amicalEditId" type="hidden" />
+                  <input id="amicalCreateTitle" type="text" placeholder="Titre de l'activité" data-i18n-placeholder="amical.create.titlePlaceholder" required />
+                  <textarea id="amicalCreateDescription" placeholder="Description" data-i18n-placeholder="amical.create.descriptionPlaceholder" required></textarea>
+                  <input id="amicalCreatePlace" type="text" placeholder="Lieu à Marseille" data-i18n-placeholder="amical.create.placePlaceholder" />
+                  <input id="amicalCreateDate" type="datetime-local" required />
+                  <input id="amicalCreateTags" type="text" placeholder="Tags séparés par des virgules" data-i18n-placeholder="amical.create.tagsPlaceholder" />
+                  <label class="check-row">
+                    <input id="amicalCreateVip" type="checkbox" />
+                    <span data-i18n="amical.create.vip">Activité VIP</span>
+                  </label>
+                  <label class="check-row">
+                    <input id="amicalCreateApproval" type="checkbox" />
+                    <span data-i18n="amical.create.approval">Valider les inscriptions manuellement</span>
+                  </label>
+                  <button class="btn btn-amical" id="amicalCreateSubmit" type="submit" data-i18n="amical.create.submit">Créer l'activité</button>
+                </form>
+              </article>
+
+              <article class="card">
+                <div class="section-head">
+                  <div>
+                    <h3 data-i18n="amical.list.title">Mes activités</h3>
+                    <p class="meta" data-i18n="amical.list.text">Tu peux modifier, supprimer ou traiter les demandes en attente.</p>
+                  </div>
+                </div>
+                <div id="amicalCreatedList" class="created-list"></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="space-view" data-space="amical" data-view-panel="messages">
+            <div class="chat-layout">
+              <aside class="card chat-sidebar">
+                <div class="section-head">
+                  <div>
+                    <h3 data-i18n="amical.groups.title">Groupes</h3>
+                    <p class="meta" data-i18n="amical.groups.text">Activités rejointes ou organisées.</p>
+                  </div>
+                </div>
+                <div class="conversation-list" id="amicalConversationList"></div>
+              </aside>
+
+              <section class="card chat-main">
+                <div class="chat-head">
+                  <div>
+                    <h3 id="amicalChatTitle">Messagerie groupe</h3>
+                    <p class="meta" id="amicalChatSubtitle">Choisis une activité pour ouvrir le groupe.</p>
+                  </div>
+                </div>
+                <div id="amicalChatMessages" class="chat-box theme-amical"></div>
+                <p id="amicalTyping" class="typing hidden" data-i18n="amical.typing">L1VE bot écrit...</p>
+                <form id="amicalChatForm" class="chat-form">
+                  <input id="amicalChatInput" type="text" placeholder="Pose une question sur le lieu, l'heure ou les places..." data-i18n-placeholder="amical.chat.placeholder" />
+                  <button class="btn btn-amical" type="submit" data-i18n="feed.comment.send">Envoyer</button>
+                </form>
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <section class="space-panel" data-space-panel="sport">
+          <header class="space-header sport">
+            <div>
+              <p class="eyebrow" data-i18n="sport.header.eyebrow">Rencontre sportive</p>
+              <h2 data-i18n="sport.header.title">Running, paddle, foot et sessions collectives pour bouger avec du monde.</h2>
+              <p class="space-text" data-i18n="sport.header.text">
+                Carte de Marseille, création de sessions sportives, validation manuelle si besoin et
+                messagerie de groupe dédiée.
+              </p>
+            </div>
+            <div class="space-side">
+              <p class="usage-text" id="sportUsageText"></p>
+              <img class="space-logo" src="assets/logo-l1ve-sport.svg" alt="Logo L1VE sport" />
+            </div>
+          </header>
+
+          <nav class="inner-tabs sport" aria-label="Navigation sportive">
+            <button class="inner-tab active" data-space="sport" data-view="activities" data-i18n="tab.sport.activities">🗺️ Sessions</button>
+            <button class="inner-tab" data-space="sport" data-view="create" data-i18n="tab.sport.create">➕ Créer</button>
+            <button class="inner-tab" data-space="sport" data-view="messages" data-i18n="tab.sport.messages">💬 Messages</button>
+          </nav>
+
+          <div class="space-view active" data-space="sport" data-view-panel="activities">
+            <div class="feature-grid">
+              <article class="card map-card">
+                <div class="section-head">
+                  <div>
+                    <h3 data-i18n="sport.map.title">Carte des sessions</h3>
+                    <p class="meta" data-i18n="sport.map.text">Pins verts pour le sport, dorés pour les sessions VIP.</p>
+                  </div>
+                </div>
+                <div class="map-jump-row" id="sportMapJumps"></div>
+                <div id="sportMap" class="map-surface"></div>
+              </article>
+
+              <article class="card detail-card">
+                <img id="sportSelectedImage" class="place-photo" alt="Lieu activité sportive" />
+                <div class="detail-head">
+                  <div>
+                    <h3 id="sportSelectedTitle">Sélectionne une session</h3>
+                    <p id="sportSelectedDesc" class="meta">Clique sur un pin vert pour ouvrir la fiche.</p>
+                  </div>
+                  <span class="badge badge-muted" id="sportSelectedStatus">Session</span>
+                </div>
+                <p id="sportSelectedMeta" class="meta"></p>
+                <div class="tags" id="sportSelectedTags"></div>
+                <div class="avatar-line" id="sportParticipants"></div>
+                <section class="request-panel hidden" id="sportPendingSection">
+                  <h4 data-i18n="sport.pending.title">Demandes en attente</h4>
+                  <div id="sportPendingRequests" class="request-list"></div>
+                </section>
+                <button class="btn btn-green" id="sportJoinBtn" type="button" disabled>S'inscrire</button>
+              </article>
+            </div>
+          </div>
+
+          <div class="space-view" data-space="sport" data-view-panel="create">
+            <div class="split two-cols">
+              <article class="card">
+                <div class="section-head">
+                  <div>
+                    <h3 data-i18n="sport.create.title">Créer une session</h3>
+                    <p class="meta" data-i18n="sport.create.text">Running, paddle, foot ou tout autre format sport collectif à Marseille.</p>
+                  </div>
+                </div>
+                <form id="sportCreateForm" class="compact-form">
+                  <input id="sportEditId" type="hidden" />
+                  <input id="sportCreateTitle" type="text" placeholder="Titre de la session" data-i18n-placeholder="sport.create.titlePlaceholder" required />
+                  <textarea id="sportCreateDescription" placeholder="Description" data-i18n-placeholder="sport.create.descriptionPlaceholder" required></textarea>
+                  <input id="sportCreatePlace" type="text" placeholder="Lieu à Marseille" data-i18n-placeholder="sport.create.placePlaceholder" />
+                  <input id="sportCreateDate" type="datetime-local" required />
+                  <input id="sportCreateTags" type="text" placeholder="Tags séparés par des virgules" data-i18n-placeholder="sport.create.tagsPlaceholder" />
+                  <label class="check-row">
+                    <input id="sportCreateVip" type="checkbox" />
+                    <span data-i18n="sport.create.vip">Session VIP</span>
+                  </label>
+                  <label class="check-row">
+                    <input id="sportCreateApproval" type="checkbox" />
+                    <span data-i18n="sport.create.approval">Valider les inscriptions manuellement</span>
+                  </label>
+                  <button class="btn btn-green" id="sportCreateSubmit" type="submit" data-i18n="sport.create.submit">Créer la session</button>
+                </form>
+              </article>
+
+              <article class="card">
+                <div class="section-head">
+                  <div>
+                    <h3 data-i18n="sport.list.title">Mes sessions sportives</h3>
+                    <p class="meta" data-i18n="sport.list.text">Tu peux modifier, supprimer ou traiter les demandes en attente.</p>
+                  </div>
+                </div>
+                <div id="sportCreatedList" class="created-list"></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="space-view" data-space="sport" data-view-panel="messages">
+            <div class="chat-layout">
+              <aside class="card chat-sidebar">
+                <div class="section-head">
+                  <div>
+                    <h3 data-i18n="sport.groups.title">Groupes</h3>
+                    <p class="meta" data-i18n="sport.groups.text">Sessions rejointes ou organisées.</p>
+                  </div>
+                </div>
+                <div class="conversation-list" id="sportConversationList"></div>
+              </aside>
+
+              <section class="card chat-main">
+                <div class="chat-head">
+                  <div>
+                    <h3 id="sportChatTitle">Messagerie sportive</h3>
+                    <p class="meta" id="sportChatSubtitle">Choisis une session pour ouvrir le groupe.</p>
+                  </div>
+                </div>
+                <div id="sportChatMessages" class="chat-box theme-sport"></div>
+                <p id="sportTyping" class="typing hidden" data-i18n="sport.typing">L1VE bot écrit...</p>
+                <form id="sportChatForm" class="chat-form">
+                  <input id="sportChatInput" type="text" placeholder="Demande le lieu, l'heure, le niveau ou les places..." data-i18n-placeholder="sport.chat.placeholder" />
+                  <button class="btn btn-green" type="submit" data-i18n="feed.comment.send">Envoyer</button>
+                </form>
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <section class="space-panel" data-space-panel="pro">
+          <header class="space-header pro">
+            <div>
+              <p class="eyebrow" data-i18n="pro.header.eyebrow">Rencontre pro</p>
+              <h2 data-i18n="pro.header.title">Événements, afterworks, feed et conversations orientées opportunités.</h2>
+              <p class="space-text" data-i18n="pro.header.text">
+                Une vue carte, un espace création, un feed social et des messages de groupe par événement.
+              </p>
+            </div>
+            <div class="space-side">
+              <p class="usage-text" id="proUsageText"></p>
+              <img class="space-logo" src="assets/logo-l1ve-pro.svg" alt="Logo L1VE pro" />
+            </div>
+          </header>
+
+          <nav class="inner-tabs pro" aria-label="Navigation pro">
+            <button class="inner-tab active" data-space="pro" data-view="events" data-i18n="tab.pro.events">🗺️ Événements</button>
+            <button class="inner-tab" data-space="pro" data-view="create" data-i18n="tab.pro.create">➕ Créer</button>
+            <button class="inner-tab" data-space="pro" data-view="feed" data-i18n="tab.pro.feed">📰 Feed</button>
+            <button class="inner-tab" data-space="pro" data-view="messages" data-i18n="tab.pro.messages">💬 Messages</button>
+          </nav>
+
+          <div class="space-view active" data-space="pro" data-view-panel="events">
+            <div class="feature-grid">
+              <article class="card map-card">
+                <div class="section-head">
+                  <div>
+                    <h3 data-i18n="pro.map.title">Carte des événements</h3>
+                    <p class="meta" data-i18n="pro.map.text">Pins bleus pour les événements, forme dédiée pour les afterworks.</p>
+                  </div>
+                </div>
+                <div class="map-jump-row" id="proMapJumps"></div>
+                <div id="proMap" class="map-surface"></div>
+              </article>
+
+              <article class="card detail-card">
+                <img id="proSelectedImage" class="place-photo" alt="Lieu événement pro" />
+                <div class="detail-head">
+                  <div>
+                    <h3 id="proSelectedTitle">Sélectionne un événement</h3>
+                    <p id="proSelectedDesc" class="meta">Clique sur un pin bleu pour voir les détails.</p>
+                  </div>
+                  <span class="badge badge-pro" id="proSelectedKind">Événement</span>
+                </div>
+                <p id="proSelectedMeta" class="meta"></p>
+                <div class="tags" id="proSelectedTags"></div>
+                <div class="avatar-line" id="proParticipants"></div>
+                <section class="request-panel hidden" id="proPendingSection">
+                  <h4 data-i18n="pro.pending.title">Demandes en attente</h4>
+                  <div id="proPendingRequests" class="request-list"></div>
+                </section>
+                <button class="btn btn-blue" id="proJoinBtn" type="button" disabled>S'inscrire</button>
+              </article>
+            </div>
+          </div>
+
+          <div class="space-view" data-space="pro" data-view-panel="create">
+            <div class="split two-cols">
+              <article class="card">
+                <div class="section-head">
+                  <div>
+                    <h3 data-i18n="pro.create.title">Créer un événement</h3>
+                    <p class="meta" data-i18n="pro.create.text">Afterwork, réunion, formation ou masterclass avec validation manuelle en option.</p>
+                  </div>
+                </div>
+                <form id="proCreateForm" class="compact-form">
+                  <input id="proEditId" type="hidden" />
+                  <select id="proCreateKind" required>
+                    <option value="MASTERCLASS" data-i18n="kind.MASTERCLASS">MASTERCLASS</option>
+                    <option value="FORMATION" data-i18n="kind.FORMATION">FORMATION</option>
+                    <option value="REUNION" data-i18n="kind.REUNION">RÉUNION</option>
+                    <option value="AFTERWORK" data-i18n="kind.AFTERWORK">AFTERWORK</option>
+                  </select>
+                  <input id="proCreateTitle" type="text" placeholder="Titre de l'événement" data-i18n-placeholder="pro.create.titlePlaceholder" required />
+                  <textarea id="proCreateDescription" placeholder="Description" data-i18n-placeholder="pro.create.descriptionPlaceholder" required></textarea>
+                  <input id="proCreatePlace" type="text" placeholder="Lieu à Marseille" data-i18n-placeholder="pro.create.placePlaceholder" />
+                  <input id="proCreateDate" type="datetime-local" required />
+                  <input id="proCreateTags" type="text" placeholder="Tags séparés par des virgules" data-i18n-placeholder="pro.create.tagsPlaceholder" />
+                  <label class="check-row">
+                    <input id="proCreateVip" type="checkbox" />
+                    <span data-i18n="pro.create.vip">Événement VIP</span>
+                  </label>
+                  <label class="check-row">
+                    <input id="proCreateApproval" type="checkbox" />
+                    <span data-i18n="pro.create.approval">Valider les inscriptions manuellement</span>
+                  </label>
+                  <button class="btn btn-blue" id="proCreateSubmit" type="submit" data-i18n="pro.create.submit">Créer l'événement</button>
+                </form>
+              </article>
+
+              <article class="card">
+                <div class="section-head">
+                  <div>
+                    <h3 data-i18n="pro.list.title">Mes événements</h3>
+                    <p class="meta" data-i18n="pro.list.text">Historique, édition rapide et traitement des demandes en attente.</p>
+                  </div>
+                </div>
+                <div id="proCreatedList" class="created-list"></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="space-view" data-space="pro" data-view-panel="feed">
+            <div class="split two-cols">
+              <article class="card">
+                <div class="section-head">
+                  <div>
+                    <h3 data-i18n="pro.feed.createTitle">Créer un post</h3>
+                    <p class="meta" data-i18n="pro.feed.createText">Publie une info, une annonce ou une quote à ton réseau.</p>
+                  </div>
+                </div>
+                <form id="proPostForm" class="compact-form">
+                  <select id="proPostType">
+                    <option value="POST">Post</option>
+                    <option value="QUOTE">Quote</option>
+                  </select>
+                  <input id="proQuoteAuthor" type="text" placeholder="Auteur de la quote (optionnel)" data-i18n-placeholder="pro.feed.quotePlaceholder" />
+                  <textarea id="proPostContent" placeholder="Ton contenu..." data-i18n-placeholder="pro.feed.contentPlaceholder" required></textarea>
+                  <button class="btn btn-blue" type="submit" data-i18n="pro.feed.publish">Publier</button>
+                </form>
+              </article>
+
+              <article class="card">
+                <div class="section-head">
+                  <div>
+                    <h3 data-i18n="pro.feed.filterTitle">Filtrer le feed</h3>
+                    <p class="meta" data-i18n="pro.feed.filterText">Les posts Platinum sont marqués en doré.</p>
+                  </div>
+                </div>
+                <div class="feed-toolbar">
+                  <button class="btn btn-soft active" data-feed-filter="ALL" data-i18n="pro.feed.filter.all">Tout</button>
+                  <button class="btn btn-soft" data-feed-filter="POST" data-i18n="pro.feed.filter.post">Posts</button>
+                  <button class="btn btn-soft" data-feed-filter="QUOTE" data-i18n="pro.feed.filter.quote">Quotes</button>
+                </div>
+              </article>
+            </div>
+
+            <article class="card">
+              <div class="feed" id="proFeed"></div>
+            </article>
+          </div>
+
+          <div class="space-view" data-space="pro" data-view-panel="messages">
+            <div class="chat-layout">
+              <aside class="card chat-sidebar">
+                <div class="section-head">
+                  <div>
+                    <h3 data-i18n="pro.groups.title">Salons</h3>
+                    <p class="meta" data-i18n="pro.groups.text">Événements rejoints ou organisés.</p>
+                  </div>
+                </div>
+                <div class="conversation-list" id="proConversationList"></div>
+              </aside>
+
+              <section class="card chat-main">
+                <div class="chat-head">
+                  <div>
+                    <h3 id="proChatTitle">Messagerie pro</h3>
+                    <p class="meta" id="proChatSubtitle">Choisis un événement pour ouvrir le groupe.</p>
+                  </div>
+                </div>
+                <div id="proChatMessages" class="chat-box theme-pro"></div>
+                <p id="proTyping" class="typing hidden" data-i18n="pro.typing">L1VE bot écrit...</p>
+                <form id="proChatForm" class="chat-form">
+                  <input id="proChatInput" type="text" placeholder="Demande le lieu exact, la capacité ou l'accès VIP..." data-i18n-placeholder="pro.chat.placeholder" />
+                  <button class="btn btn-blue" type="submit" data-i18n="feed.comment.send">Envoyer</button>
+                </form>
+              </section>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <nav class="tabs mobile-tabs" aria-label="Navigation mobile">
+        <button class="tab-btn active" data-main-space="dating" data-i18n="space.dating">Dating</button>
+        <button class="tab-btn" data-main-space="amical" data-i18n="space.amical">Amical</button>
+        <button class="tab-btn" data-main-space="sport" data-i18n="space.sport">Sport</button>
+        <button class="tab-btn" data-main-space="pro" data-i18n="space.pro">Pro</button>
+      </nav>
+
+      <div id="memberProfileModal" class="member-profile-modal hidden" aria-hidden="true">
+        <article id="memberProfileCard" class="member-profile-card card" role="dialog" aria-modal="true" aria-labelledby="memberProfileName">
+          <button id="memberProfileClose" class="member-profile-close" type="button" aria-label="Fermer le profil">×</button>
+          <div class="member-profile-top">
+            <div id="memberProfileMedia" class="member-profile-media"></div>
+            <div class="member-profile-copy">
+              <span id="memberProfileBadge" class="badge badge-muted">Profil</span>
+              <h3 id="memberProfileName">Membre</h3>
+              <p id="memberProfileHeadline" class="member-profile-headline"></p>
+              <p id="memberProfileLocation" class="meta"></p>
+            </div>
+          </div>
+          <p id="memberProfileBio" class="member-profile-bio"></p>
+          <p id="memberProfilePrivate" class="member-profile-note hidden">Certaines infos sont masquées par choix de confidentialité.</p>
+          <div id="memberProfileTags" class="tags"></div>
+          <div id="memberProfileFacts" class="member-profile-facts"></div>
+        </article>
+      </div>
+
+      <div id="toast" class="toast hidden"></div>
+    </div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="48" fill="#F8F4FA"/>
+  <rect x="60" y="60" width="1080" height="680" rx="40" fill="url(#bg)"/>
+  <circle cx="962" cy="186" r="92" fill="#D084B9" fill-opacity="0.18"/>
+  <circle cx="242" cy="214" r="122" fill="#9A2B70" fill-opacity="0.14"/>
+  <path d="M120 574C238 500 362 474 492 496C614 516 730 576 870 574C962 572 1040 544 1080 518V700H120V574Z" fill="#EAC6DB"/>
+  <path d="M120 610C248 528 358 514 478 540C614 568 718 638 860 634C956 632 1036 596 1080 560V700H120V610Z" fill="#9A2B70"/>
+  <rect x="176" y="220" width="224" height="290" rx="28" fill="#FFF7FB" fill-opacity="0.92"/>
+  <circle cx="288" cy="310" r="62" fill="#D9B1C9"/>
+  <path d="M240 410C254 376 324 374 338 410L358 468H220L240 410Z" fill="#BD6FA3"/>
+  <rect x="470" y="256" width="540" height="58" rx="20" fill="#FFFFFF" fill-opacity="0.84"/>
+  <rect x="470" y="338" width="430" height="26" rx="13" fill="#FFFFFF" fill-opacity="0.78"/>
+  <rect x="470" y="384" width="350" height="26" rx="13" fill="#FFFFFF" fill-opacity="0.62"/>
+  <rect x="470" y="454" width="186" height="52" rx="18" fill="#9A2B70"/>
+  <text x="470" y="164" fill="#7B2059" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Rencontre amicale</text>
+  <text x="470" y="220" fill="#6E6170" font-family="Arial, Helvetica, sans-serif" font-size="24">Sorties, groupes et moments simples a Marseille.</text>
+  <defs>
+    <linearGradient id="bg" x1="60" y1="60" x2="1140" y2="740" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF9FC"/>
+      <stop offset="1" stop-color="#F1DFEC"/>
+    </linearGradient>
+  </defs>
+</svg>

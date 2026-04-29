@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="470 240 440 330" role="img" aria-label="Logo L1VE">
+<defs>
+<clipPath id="clip_1">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H6000V3375H0Z" clip-rule="evenodd"/>
+</clipPath>
+<clipPath id="clip_2">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H6000V3375H0Z" clip-rule="evenodd"/>
+</clipPath>
+<clipPath id="clip_3">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H6000V3375H0Z" clip-rule="evenodd"/>
+</clipPath>
+<clipPath id="clip_4">
+<path transform="matrix(.24,0,0,.24,502.08,285.6)" d="M0 0H428V1020H0Z" clip-rule="evenodd"/>
+</clipPath>
+<path id="font_5_47" d="M.08984375 0V.7138672H.24121094V.125H.5307617V0H.08984375Z"/>
+<clipPath id="clip_6">
+<path transform="matrix(.24,0,0,.24,636.72,280.32)" d="M0 0H507V1043H0Z" clip-rule="evenodd"/>
+</clipPath>
+<path id="font_5_57" d="M.4970703 .7138672H.64990237L.40722657 0H.2421875L0 .7138672H.15283203L.28710938 .2890625C.29459635 .2639974 .30232749 .2347819 .31030274 .20141602 .31827799 .16805013 .3232422 .14485677 .3251953 .13183594 .32877604 .16178386 .34098307 .2141927 .3618164 .2890625L.4970703 .7138672Z"/>
+<path id="font_7_20" d="M.41308595 0H.26220704V.41308595L.26367188 .48095704 .26611329 .5551758C.24104817 .53011068 .22363281 .5136719 .21386719 .5058594L.13183594 .4399414 .05908203 .5307617 .2890625 .7138672H.41308595V0Z"/>
+<clipPath id="clip_8">
+<path transform="matrix(.24,0,0,.24,782.16,285.6)" d="M0 0H422V1020H0Z" clip-rule="evenodd"/>
+</clipPath>
+<path id="font_5_40" d="M.50097659 0H.08984375V.7138672H.50097659V.58984377H.24121094V.43359376H.48291017V.3095703H.24121094V.125H.50097659V0Z"/>
+</defs>
+<g>
+<g clip-path="url(#clip_1)">
+</g>
+<g clip-path="url(#clip_2)">
+</g>
+<g clip-path="url(#clip_3)">
+<g>
+<g clip-path="url(#clip_4)">
+<use data-text="L" xlink:href="#font_5_47" transform="matrix(179.61269,0,0,-179.61269,502.3256,477.46437)"/>
+</g>
+</g>
+<g>
+<g clip-path="url(#clip_6)">
+<use data-text="V" xlink:href="#font_5_57" transform="matrix(183.61624,0,0,-183.61624,638.1231,476.6244)"/>
+</g>
+</g>
+<use data-text="1" xlink:href="#font_7_20" transform="matrix(184.10758,-65.546268,-65.546268,-184.10758,633.9641,492.757)" fill="#545454"/>
+<g>
+<g clip-path="url(#clip_8)">
+<use data-text="E" xlink:href="#font_5_40" transform="matrix(179.61269,0,0,-179.61269,782.51937,477.46437)"/>
+</g>
+</g>
+</g>
+</g>
+</svg>

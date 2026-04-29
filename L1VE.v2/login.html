@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L1VE - Connexion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="login">
+    <main class="auth-shell">
+      <section class="auth-card card">
+        <div class="auth-toolbar">
+          <a class="auth-brand" href="landing.html">
+            <img src="assets/logo-l1ve-generic.svg" alt="Logo L1VE">
+          </a>
+          <div class="language-panel" data-language-panel="login"></div>
+        </div>
+        <div>
+          <p class="eyebrow" data-i18n="login.eyebrow">Connexion</p>
+          <h1 data-i18n="login.title">Reprends la main sur tes rencontres marseillaises.</h1>
+        </div>
+        <form id="loginForm" class="compact-form">
+          <label>
+            <span data-i18n="login.email">Email</span>
+            <input id="loginEmail" type="email" placeholder="toi@exemple.com" data-i18n-placeholder="login.emailPlaceholder" required />
+          </label>
+          <label>
+            <span data-i18n="login.password">Mot de passe</span>
+            <input id="loginPassword" type="password" placeholder="••••••••" required />
+          </label>
+          <button class="btn" type="submit" data-i18n="login.submit">Se connecter</button>
+        </form>
+        <div class="auth-links">
+          <a href="forgot-password.html" data-i18n="login.forgot">Mot de passe oublié ?</a>
+          <a href="register.html" data-i18n="login.register">Pas encore de compte ? S'inscrire</a>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
